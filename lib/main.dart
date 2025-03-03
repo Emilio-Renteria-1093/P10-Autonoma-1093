@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
       home: Scaffold(
         appBar: AppBar(
           title: const Text('Emilio Renteria 22308051281093 '),
-          titleTextStyle: TextStyle(fontSize: 30, color: Colors.white),
+          titleTextStyle: TextStyle(fontSize: 25, color: Colors.white),
           backgroundColor: Colors.blueAccent,
           centerTitle: true,
         ),
@@ -37,30 +37,44 @@ class MyApp extends StatelessWidget {
                 ),
               ),
 
-              // Círculo de color rojo
+              // Círculo de color morado con margen negro
               Container(
-                width: 80,
-                height: 80,
+                padding: EdgeInsets.all(3), // Margen simulado
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
-                  color: Colors.purple,
+                  color: Colors.black, // Color del margen
+                ),
+                child: Container(
+                  width: 80,
+                  height: 80,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: Colors.purple,
+                  ),
                 ),
               ),
 
-              // Círculo con imagen desde URL
-              ClipOval(
-                child: Image.network(
-                  'https://images7.memedroid.com/images/UPLOADED322/634084e6e7085.jpeg',
-                  width: 80,
-                  height: 80,
-                  fit: BoxFit.cover,
-                  loadingBuilder: (context, child, loadingProgress) {
-                    if (loadingProgress == null) return child;
-                    return CircularProgressIndicator();
-                  },
-                  errorBuilder: (context, error, stackTrace) {
-                    return Icon(Icons.error, size: 80, color: Colors.red);
-                  },
+              // Círculo con imagen y margen negro
+              Container(
+                padding: EdgeInsets.all(3), // Margen simulado
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: Colors.black, // Color del margen
+                ),
+                child: ClipOval(
+                  child: Image.network(
+                    'https://images7.memedroid.com/images/UPLOADED322/634084e6e7085.jpeg',
+                    width: 80,
+                    height: 80,
+                    fit: BoxFit.cover,
+                    loadingBuilder: (context, child, loadingProgress) {
+                      if (loadingProgress == null) return child;
+                      return CircularProgressIndicator();
+                    },
+                    errorBuilder: (context, error, stackTrace) {
+                      return Icon(Icons.error, size: 80, color: Colors.red);
+                    },
+                  ),
                 ),
               ),
             ],
@@ -70,3 +84,4 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
